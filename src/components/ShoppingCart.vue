@@ -11,7 +11,7 @@
         <img class="item-img" :src="item.image" :alt="item.name" />
         <h3 class="item-name">{{ item.name }}</h3>
         <p class="item-price">{{ formatPrice(item.price) }}원</p>
-        <button @click="removeFromCart(item.id)" class="remove-btn">
+        <button @click="removeFromCartWithToast(item.id)" class="remove-btn">
           삭제
         </button>
       </div>
@@ -32,6 +32,7 @@
 
 <script>
 import { mapState, mapGetters, mapActions } from "vuex";
+import { useToast } from "vue-toastification";
 
 export default {
   name: "ShoppingCart",
@@ -39,10 +40,18 @@ export default {
     ...mapState(["cart"]),
     ...mapGetters(["cartTotal", "formattedPrice"]),
   },
+  setup() {
+    const toast = useToast();
+    return { toast };
+  },
   methods: {
     ...mapActions(["removeFromCart"]),
     formatPrice(price) {
       return this.formattedPrice(price);
+    },
+    async removeFromCartWithToast(productId) {
+      await this.removeFromCart(productId);
+      this.toast.info("상품이 장바구니에서 제거되었습니다.");
     },
   },
 };

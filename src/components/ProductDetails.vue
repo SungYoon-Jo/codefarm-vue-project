@@ -12,7 +12,7 @@
       <div class="product-actions">
         <!-- 이벤트 핸들링 -->
         <!-- Vue는 v-on 디렉티브를 사용하여 이벤트를 처리합니다. -->
-        <button class="btn btn-primary" @click="addToCart(product)">
+        <button class="btn btn-primary" @click="addToCartWithToast(product)">
           장바구니에 추가
         </button>
         <button class="btn btn-secondary" @click="goBack">
@@ -28,6 +28,7 @@
 
 <script>
 import { mapActions, mapGetters } from "vuex";
+import { useToast } from "vue-toastification";
 
 export default {
   name: "ProductDetails",
@@ -37,6 +38,10 @@ export default {
   // 컴포넌트는 독립적으로 개발할 수 있는 UI 구성 요소입니다. 부모 컴포넌트와 자식 컴포넌트 간의 통신은 props와 이벤트를 통해 이루어집니다.
   props: {
     product: Object, // 부모 컴포넌트로부터 받는 상품 정보
+  },
+  setup() {
+    const toast = useToast();
+    return { toast };
   },
   computed: {
     ...mapGetters(["formattedPrice"]),
@@ -48,6 +53,14 @@ export default {
     },
     formatPrice(price) {
       return this.formattedPrice(price);
+    },
+    async addToCartWithToast(product) {
+      try {
+        await this.addToCart(product);
+        this.toast.success("상품이 장바구니에 추가되었습니다.");
+      } catch (error) {
+        this.toast.error("상품 추가에 실패했습니다.");
+      }
     },
   },
 };
