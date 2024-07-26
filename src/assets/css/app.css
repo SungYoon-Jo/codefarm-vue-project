@@ -1,0 +1,35 @@
+/* App CSS */
+#app {
+  font-family: Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+header ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+}
+
+ul li a .logo {
+  width: 100%;
+  height: 20px;
+  cursor: pointer;
+}
+
+ul nav {
+  display: flex;
+}
+
+ul nav a,
+ul li #shoppingCart {
+  margin: 0 0.781vw;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 0.938rem;
+}
+
+main {
+  padding: 2rem 0;
+}

@@ -1,0 +1,50 @@
+/* ProductList CSS */
+
+.product-grid {
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 1rem;
+}
+
+.product-item {
+  cursor: pointer;
+  overflow: hidden;
+  transition: transform 0.3s;
+}
+
+.product-item:hover {
+  transform: translateY(-5px);
+}
+
+.product-item img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.product-item h3 {
+  padding: 0.5rem;
+  font-weight: bold;
+  font-size: 0.875rem;
+}
+
+.product-item .price {
+  padding: 0 0.5rem;
+  font-size: 0.875rem;
+}
+
+.product-item .option {
+  padding: 0.5rem;
+  padding-top: 0.75rem;
+  font-size: 0.75rem;
+}
+
+.product-item .option span {
+  color: rgb(175, 89, 56);
+}
+
+.product-item button {
+  width: 100%;
+  padding: 1rem;
+  border-radius: 0;
+}

@@ -1,0 +1,107 @@
+.product-details {
+  display: flex;
+  max-width: 1400px; /* max-width 증가 */
+  margin: 0 auto;
+  padding: 40px 20px;
+  font-family: Arial, sans-serif;
+}
+
+.product-image {
+  flex: 1;
+  margin-right: 40px;
+}
+
+.product-image img {
+  width: 100%;
+  height: auto;
+}
+
+.product-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding-top: 80px;
+}
+
+.product-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 15px; /* 간격 축소 */
+  max-width: 350px;
+}
+
+.product-name {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 5px; /* 간격 축소 */
+}
+
+.product-price {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.product-description {
+  max-width: 300px;
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 20px 0; /* 간격 축소 */
+}
+
+.product-actions {
+  margin-top: 20px; /* 간격 추가 */
+}
+
+.btn {
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary {
+  background-color: #000;
+  color: #fff;
+  margin-right: 10px;
+}
+
+.btn-primary:hover {
+  background-color: #333;
+}
+
+.btn-secondary {
+  background-color: #fff;
+  color: #000;
+  border: 1px solid #000;
+}
+
+.btn-secondary:hover {
+  background-color: #f0f0f0;
+}
+
+.product-not-found {
+  text-align: center;
+  font-size: 18px;
+  color: #666;
+  padding: 40px;
+}
+
+@media (max-width: 768px) {
+  .product-details {
+    flex-direction: column;
+  }
+
+  .product-image {
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+
+  .product-description {
+    max-width: 100%;
+  }
+}
